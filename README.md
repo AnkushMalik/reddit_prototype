@@ -1,3 +1,1 @@
-# reddit_prototype
-# reddit_prototype
-# reddit_prototype
+# just a simple reddit prototype
