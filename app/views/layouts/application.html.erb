@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reddit</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/links"><strong>Reddit</strong></a>
+    </div>
+    <% if user_signed_in?%>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><%=link_to "Submit",new_link_path%></li>
+	      <li><%=link_to "Account",edit_user_registration_path%></li>
+	      <li><%=link_to "Sign Out",destroy_user_session_path,method: :delete%></li>
+	    </ul>
+	<% else %>
+		<ul class="nav navbar-nav navbar-right">
+			<li><%=link_to "Log In",new_user_session_path%></li>
+      		<li><%=link_to "Sign Up!",new_user_registration_path%></li>
+		</ul>
+	<% end %>
+  </div>
+</nav>
+
+<div class="box">
+  <div>
+    <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>
